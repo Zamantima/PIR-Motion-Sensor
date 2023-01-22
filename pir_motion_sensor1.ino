@@ -11,15 +11,18 @@ void setup()
 }
 
 void loop(){
+ 
+  Serial.println( digitalRead(PIR_Pin));
   if(digitalRead(PIR_Pin) == HIGH){
     if (PIR_State == LOW){
       	digitalWrite(LED_Pin, HIGH);
     	Serial.println("Motion Detected!");
       	delay(2000);
-      	PIR_State == LOW ;
+      	
     }
   }else{
         Serial.println("Motion Ended");
+        digitalWrite(LED_Pin, LOW);
         delay(2000);
         PIR_State == HIGH;
     }
